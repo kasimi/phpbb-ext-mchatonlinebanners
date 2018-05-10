@@ -11,7 +11,6 @@
 	position: relative;
 }
 
-
 .mchat-message[data-mchat-banner] .username::before,
 .mchat-message[data-mchat-banner] .username-coloured::before {
 	font-family: FontAwesome;
@@ -36,4 +35,8 @@
 .mchat-message[data-mchat-banner] .username:hover::after,
 .mchat-message[data-mchat-banner] .username-coloured:hover::after {
 	display: block;
+}
+
+.mchat-message {
+	overflow: initial !important;
 }
