@@ -241,7 +241,7 @@ class acp extends base
 		return [
 			'id'		=> $banner_id,
 			'title'		=> $this->request->variable('banner_title', '', true),
-			'color'		=> $this->validate_banner_color($this->request->variable('banner_no_color', 0) ? '' : $this->request->variable('banner_color', '')),
+			'color'		=> $this->validate_banner_color($this->request->variable('banner_no_color', 0) ? '' : '#' . $this->request->variable('banner_color', '')),
 			'duration'	=> max(0, $this->request->variable('banner_duration', 0)),
 		];
 	}

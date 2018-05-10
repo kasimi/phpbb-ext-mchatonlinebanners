@@ -1,5 +1,7 @@
 {% INCLUDE 'overall_header.html' %}
 
+{% INCLUDEJS '@kasimi_mchatonlinebanners/js/jscolor.min.js' %}
+
 <a id="maincontent"></a>
 
 <a href="{{ U_BACK }}" style="float: {{ S_CONTENT_FLOW_END }};">&laquo; {{ lang('BACK') }}</a>
@@ -14,7 +16,7 @@
 		<dl>
 			<dt><label for="banner_color">{{ lang('MCHATONLINEBANNERS_BANNER_COLOR') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_COLOR_EXPLAIN') }}</span></dt>
 			<dd>
-				<input type="color" name="banner_color" id="banner_color" value="{{ BANNER_COLOR }}">
+				<input type="text" class="jscolor" name="banner_color" id="banner_color" value="{{ BANNER_COLOR }}">
 				<label><input type="checkbox" class="checkbox" name="banner_no_color" value="1"{% if ACTION == 'EDIT' and not BANNER_COLOR %} checked{% endif %}> {{ lang('MCHATONLINEBANNERS_BANNER_NO_COLOR') }}</label>
 			</dd>
 		</dl>
