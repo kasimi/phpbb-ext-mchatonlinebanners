@@ -116,7 +116,14 @@ class helper
 	 */
 	public function get_banners()
 	{
-		return array_values(@json_decode($this->mchat_settings->cfg('mchat_online_banners'), true)) ?: [];
+		$banners = array_values(@json_decode($this->mchat_settings->cfg('mchat_online_banners'), true)) ?: [];
+
+		foreach ($banners as &$banner)
+		{
+			$banner['title_raw'] = htmlspecialchars_decode($banner['title'], ENT_COMPAT);
+		}
+
+		return $banners;
 	}
 
 	/**
@@ -146,6 +153,11 @@ class helper
 	 */
 	public function set_banners(array $banners)
 	{
+		foreach ($banners as &$banner)
+		{
+			unset($banner['title_raw']);
+		}
+
 		$this->mchat_settings->set_cfg('mchat_online_banners', @json_encode(array_values($banners)) ?: []);
 	}
 

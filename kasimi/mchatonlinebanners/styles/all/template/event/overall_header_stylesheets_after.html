@@ -11,10 +11,10 @@
 					display: none;
 				{% endif %}
 			}
-			{% if banner.color and banner.title %}
+			{% if banner.color and banner.title_raw %}
 				.mchat-message[data-mchat-banner="{{ banner.id }}"] .username::after,
 				.mchat-message[data-mchat-banner="{{ banner.id }}"] .username-coloured::after {
-					content: '{{ lang(banner.title) | escape('css') }}';
+					content: '{{ lang(banner.title_raw) | escape('css') }}';
 					{% if banner.color %}
 						color: {{ banner.color }};
 						border-color: {{ banner.color }};
