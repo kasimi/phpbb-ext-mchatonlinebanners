@@ -1,0 +1,33 @@
+{
+    "name": "kasimi/mchatonlinebanners",
+    "type": "phpbb-extension",
+    "description": "This extension adds a coloured banner next to each user name in mChat, indicating the user’s last activity. Banners can be configured in ACP, Extensions, mChat, Online Banners.",
+    "homepage": "https://kasimi.net",
+    "version": "1.0.0",
+    "time": "2018-05-10",
+    "license": "GPL-2.0",
+    "authors": [
+		{
+			"name": "kasimi",
+			"email": "mail@kasimi.net",
+			"homepage": "https://kasimi.net",
+			"role": "Developer"
+		}
+    ],
+    "require": {
+        "php": ">=5.4.7",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "display-name": "mChat Online Banners Addon",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.0"
+        },
+        "version-check": {
+			"host": "kasimi.github.io",
+			"directory": "/phpbb_versions",
+			"filename": "mchatonlinebanners_version.json",
+			"ssl": true
+		}
+    }
+}

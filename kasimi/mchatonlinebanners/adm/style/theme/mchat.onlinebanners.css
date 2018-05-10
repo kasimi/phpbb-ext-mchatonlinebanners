@@ -1,0 +1,34 @@
+/**
+ *
+ * mChat Online Banners. An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2018 kasimi - https://kasimi.net
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
+
+.banner-color::before {
+	font-family: FontAwesome;
+	content: '\f111';
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.banner-translatable {
+	font-size: 20px;
+	margin-left: 5px;
+}
+
+tr[data-banner-duration="0"]  ~ tr {
+	opacity: 0.4;
+}
+
+tr:first-of-type .banner-up,
+tr:last-of-type .banner-down {
+	cursor: not-allowed;
+	filter: grayscale(1);
+}
+
+td {
+	text-align: center;
+}

@@ -1,0 +1,39 @@
+/**
+ *
+ * mChat Online Banners. An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2018 kasimi - https://kasimi.net
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
+
+.mchat-message[data-mchat-banner] {
+	position: relative;
+}
+
+
+.mchat-message[data-mchat-banner] .username::before,
+.mchat-message[data-mchat-banner] .username-coloured::before {
+	font-family: FontAwesome;
+	content: '\f111';
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.mchat-message[data-mchat-banner] .username::after,
+.mchat-message[data-mchat-banner] .username-coloured::after {
+	display: none;
+	position: absolute;
+	white-space: pre;
+	padding: 3px 6px;
+	top: -20px;
+	background: #EEF5F9;
+	border: 1px solid currentColor;
+	border-radius: 7px;
+	box-shadow: 1px 1px 3px gray;
+}
+
+.mchat-message[data-mchat-banner] .username:hover::after,
+.mchat-message[data-mchat-banner] .username-coloured:hover::after {
+	display: block;
+}

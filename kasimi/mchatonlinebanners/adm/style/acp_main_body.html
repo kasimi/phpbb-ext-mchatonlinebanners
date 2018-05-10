@@ -1,0 +1,60 @@
+{% INCLUDE 'overall_header.html' %}
+
+{% INCLUDECSS '@kasimi_mchatonlinebanners/theme/mchat.onlinebanners.css' %}
+
+<a id="maincontent"></a>
+
+<h1>{{ lang('MCHATONLINEBANNERS_TITLE') }}</h1>
+
+<p>{{ lang('MCHATONLINEBANNERS_EXPLAIN') }}</p>
+
+<form id="acp_mchatonlinebanners" method="post" action="{{ U_ACTION }}">
+	<fieldset class="tabulated">
+		<legend>{{ lang('ACP_MCHATONLINEBANNERS_TITLE') }}</legend>
+		<table class="table1 zebra-table">
+			<thead>
+				<tr>
+					<th>{{ lang('MCHATONLINEBANNERS_BANNER_TITLE') }}</th>
+					<th>{{ lang('MCHATONLINEBANNERS_BANNER_COLOR') }}</th>
+					<th>{{ lang('MCHATONLINEBANNERS_BANNER_DURATION') }}</th>
+					<th>{{ lang('ACTION') }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for banner in banners %}
+				<tr data-banner-duration="{{ banner.DURATION }}">
+					{% if banner.COLOR %}
+						<td>
+							<span class="banner-color" style="color: {{ banner.COLOR }};"></span>
+							<strong>{{ banner.TITLE }}</strong>
+							{% if banner.IS_TRANSLATABLE %}<i class="icon fa fa-language banner-translatable" aria-hidden="true" title="{{ lang('MCHATONLINEBANNERS_BANNER_TITLE_TRANSLATABLE') }}"></i>{% endif %}
+						</td>
+						<td><span style="color: {{ banner.COLOR }};">{{ banner.COLOR }}</span></td>
+					{% else %}
+						<td colspan="2">
+							{{ lang('MCHATONLINEBANNERS_BANNER_NO_COLOR') }}
+						</td>
+					{% endif %}
+					<td><span class="banner-duration">{{ lang('MCHATONLINEBANNERS_DURATION_SECONDS_FULL', banner.DURATION) }}</span></td>
+					<td class="actions">
+						<a href="{{ banner.U_MOVE_UP }}" class="banner-up" data-ajax="row_up">{{ ICON_MOVE_UP }}</a>
+						<a href="{{ banner.U_MOVE_DOWN }}" class="banner-down" data-ajax="row_down">{{ ICON_MOVE_DOWN }}</a>
+						<a href="{{ banner.U_EDIT }}" class="banner-edit">{{ ICON_EDIT }}</a>
+						<a href="{{ banner.U_DELETE }}" class="banner-delete" data-ajax="row_delete">{{ ICON_DELETE }}</a>
+					</td>
+				</tr>
+				{% else %}
+				<tr class="row3">
+					<td colspan="3">{{ lang('ACP_NO_ITEMS') }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<p class="quick">
+			<input class="button2" name="add" type="submit" value="{{ lang('MCHATONLINEBANNERS_ADD') }}" />
+		</p>
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+</form>
+
+{% INCLUDE 'overall_footer.html' %}

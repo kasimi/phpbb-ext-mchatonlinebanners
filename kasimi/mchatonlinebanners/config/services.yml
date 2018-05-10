@@ -1,0 +1,24 @@
+services:
+    kasimi.mchatonlinebanners.listener:
+        class: kasimi\mchatonlinebanners\event\main_listener
+        arguments:
+            - '@language'
+            - '@template'
+            - '@kasimi.mchatonlinebanners.helper'
+        tags:
+            - { name: event.listener }
+
+    kasimi.mchatonlinebanners.controller.acp:
+        class: kasimi\mchatonlinebanners\controller\acp
+        arguments:
+            - '@user'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@log'
+            - '@kasimi.mchatonlinebanners.helper'
+
+    kasimi.mchatonlinebanners.helper:
+        class: kasimi\mchatonlinebanners\includes\helper
+        arguments:
+            - '@?dmzx.mchat.settings'

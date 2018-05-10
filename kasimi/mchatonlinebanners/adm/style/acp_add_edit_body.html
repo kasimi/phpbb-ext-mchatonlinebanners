@@ -1,0 +1,38 @@
+{% INCLUDE 'overall_header.html' %}
+
+<a id="maincontent"></a>
+
+<a href="{{ U_BACK }}" style="float: {{ S_CONTENT_FLOW_END }};">&laquo; {{ lang('BACK') }}</a>
+
+<h1>{{ lang('MCHATONLINEBANNERS_TITLE') }} &raquo; {{ lang('MCHATONLINEBANNERS_' ~ ACTION) }}</h1>
+
+<p>{{ lang('MCHATONLINEBANNERS_EXPLAIN') }}</p>
+
+<form id="acp_mchatonlinebanners_add_edit" method="post" action="{{ U_ACTION }}">
+	<fieldset>
+		<legend>{{ lang('MCHATONLINEBANNERS_' ~ ACTION) }}</legend>
+		<dl>
+			<dt><label for="banner_color">{{ lang('MCHATONLINEBANNERS_BANNER_COLOR') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_COLOR_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="color" name="banner_color" id="banner_color" value="{{ BANNER_COLOR }}">
+				<label><input type="checkbox" class="checkbox" name="banner_no_color" value="1"{% if ACTION == 'EDIT' and not BANNER_COLOR %} checked{% endif %}> {{ lang('MCHATONLINEBANNERS_BANNER_NO_COLOR') }}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="banner_title">{{ lang('MCHATONLINEBANNERS_BANNER_TITLE') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_TITLE_EXPLAIN') }}</span></dt>
+			<dd><input type="text" name="banner_title" id="banner_title" size="20" value="{{ BANNER_TITLE }}"></dd>
+		</dl>
+		<dl>
+			<dt><label for="banner_duration">{{ lang('MCHATONLINEBANNERS_BANNER_DURATION') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_DURATION_EXPLAIN') }}</span></dt>
+			<dd><input type="number" name="banner_duration" id="banner_duration" min="0" value="{{ BANNER_DURATION }}" required>&nbsp;<span>{{ lang('MCHATONLINEBANNERS_DURATION_SECONDS') }}</span></dd>
+		</dl>
+	</fieldset>
+	<fieldset class="submit-buttons">
+		<legend>{{ lang('SUBMIT') }}</legend>
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+</form>
+
+{% INCLUDE 'overall_footer.html' %}

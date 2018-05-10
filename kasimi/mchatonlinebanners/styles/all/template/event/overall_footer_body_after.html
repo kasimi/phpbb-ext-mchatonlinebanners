@@ -1,0 +1,15 @@
+{% if MCHAT_ONLINEBANNERS %}
+	<script>
+		jQuery(function() {
+			if (typeof mChat === 'object' && typeof mChat.onlineBanners === 'function') {
+				let banners = [];
+				{% set total_duration = 0 %}
+				{% for banner in MCHAT_ONLINEBANNERS %}
+					{% set total_duration = total_duration + banner.duration * 1000 %}
+					banners.push({id: {{ banner.id }}, duration: {{ banner.duration ? total_duration : 0 }}});
+				{% endfor %}
+				mChat.onlineBanners(banners, Date.now() - {{ MCHAT_ONLINEBANNERS_NOW }});
+			}
+		});
+	</script>
+{% endif %}
