@@ -33,6 +33,13 @@
 			<dt><label for="banner_duration">{{ lang('MCHATONLINEBANNERS_BANNER_DURATION') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_DURATION_EXPLAIN') }}</span></dt>
 			<dd><input type="number" name="banner_duration" id="banner_duration" min="0" value="{{ BANNER_DURATION }}" required>&nbsp;<span>{{ lang('MCHATONLINEBANNERS_DURATION_SECONDS') }}</span></dd>
 		</dl>
+		<dl>
+			<dt><label for="banner_legend">{{ lang('MCHATONLINEBANNERS_BANNER_LEGEND') ~ lang('COLON') }}</label></dt>
+			<dd>
+				<label><input type="radio" class="radio banner_legend" name="banner_legend" value="1"{% if BANNER_LEGEND %} id="banner_legend" checked="checked"{% endif %}> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio banner_legend" name="banner_legend" value="0"{% if not BANNER_LEGEND %} id="banner_legend" checked="checked"{% endif %}> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 	</fieldset>
 	<fieldset class="submit-buttons">
 		<legend>{{ lang('SUBMIT') }}</legend>

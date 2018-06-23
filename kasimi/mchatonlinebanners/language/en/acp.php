@@ -56,6 +56,7 @@ $lang = array_merge($lang, [
 	'MCHATONLINEBANNERS_BANNER_IMAGE_NOT_FOUND'		=> '[Image not found]',
 	'MCHATONLINEBANNERS_BANNER_DURATION'			=> 'Duration',
 	'MCHATONLINEBANNERS_BANNER_DURATION_EXPLAIN'	=> 'The time in seconds this banner is displayed. After the time has passed without any activity from the user, the user’s banner changes to the next banner in the list. If set to 0, the banner is displayed indefinitely.',
+	'MCHATONLINEBANNERS_BANNER_LEGEND'				=> 'Display in legend',
 	'MCHATONLINEBANNERS_DURATION_SECONDS'			=> 'seconds',
 	'MCHATONLINEBANNERS_DURATION_SECONDS_FULL'		=> [
 		0 => '∞',

@@ -17,6 +17,7 @@
 					<th>{{ lang('MCHATONLINEBANNERS_BANNER_TITLE') }}</th>
 					<th>{{ lang('MCHATONLINEBANNERS_BANNER_COLOR') }}</th>
 					<th>{{ lang('MCHATONLINEBANNERS_BANNER_DURATION') }}</th>
+					<th>{{ lang('MCHATONLINEBANNERS_BANNER_LEGEND') }}</th>
 					<th>{{ lang('ACTION') }}</th>
 				</tr>
 			</thead>
@@ -42,6 +43,7 @@
 							</td>
 						{% endif %}
 						<td><span class="banner-duration">{{ lang('MCHATONLINEBANNERS_DURATION_SECONDS_FULL', banner.DURATION) }}</span></td>
+						<td><span class="banner-legend">{{ lang(banner.LEGEND ? 'YES' : 'NO') }}</span></td>
 						<td class="actions">
 							<a href="{{ banner.U_MOVE_UP }}" class="banner-up" data-ajax="row_up">{{ ICON_MOVE_UP }}</a>
 							<a href="{{ banner.U_MOVE_DOWN }}" class="banner-down" data-ajax="row_down">{{ ICON_MOVE_DOWN }}</a>
@@ -50,9 +52,9 @@
 						</td>
 					</tr>
 				{% else %}
-				<tr class="row3">
-					<td colspan="3">{{ lang('ACP_NO_ITEMS') }}</td>
-				</tr>
+					<tr class="row4">
+						<td colspan="4">{{ lang('ACP_NO_ITEMS') }}</td>
+					</tr>
 				{% endfor %}
 			</tbody>
 		</table>

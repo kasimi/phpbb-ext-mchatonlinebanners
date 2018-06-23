@@ -130,6 +130,7 @@ class acp extends base
 						'BANNER_COLOR'		=> $banner['color'],
 						'BANNER_IMAGE'		=> $banner['image'],
 						'BANNER_DURATION'	=> $banner['duration'],
+						'BANNER_LEGEND'		=> $banner['legend'],
 					]);
 				}
 
@@ -222,6 +223,7 @@ class acp extends base
 				'COLOR'				=> $banner['color'],
 				'IMAGE'				=> $banner['image_absolute'],
 				'DURATION'			=> $banner['duration'],
+				'LEGEND'			=> $banner['legend'],
 				'IS_TRANSLATABLE'	=> $this->helper->is_banner_translatable($banner),
 				'U_MOVE_UP'			=> $u_action . '&amp;action=up&amp;banner=' . $banner['id'] . '&amp;hash=' . $hash,
 				'U_MOVE_DOWN'		=> $u_action . '&amp;action=down&amp;banner=' . $banner['id'] . '&amp;hash=' . $hash,
@@ -245,6 +247,7 @@ class acp extends base
 			'color'		=> $this->validate_banner_color($this->request->variable('banner_color', '')),
 			'image'		=> $this->request->variable('banner_image', ''),
 			'duration'	=> max(0, $this->request->variable('banner_duration', 0)),
+			'legend'	=> $this->request->variable('banner_legend', false),
 		];
 	}
 

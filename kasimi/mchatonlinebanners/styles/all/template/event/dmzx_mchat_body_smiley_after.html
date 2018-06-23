@@ -1,0 +1,12 @@
+<div class="mchat-onlinebanners">
+	{% for banner in MCHAT_ONLINEBANNERS if banner.legend %}
+		<span data-mchat-banner="{{ banner.id }}"{% if banner.color %} style="color: {{ banner.color }};"{% endif %}>
+			{% if banner.image %}
+				<img src="{{ banner.image_absolute }}" alt="[{{ banner.title }}]">
+			{% else %}
+				<i class="icon fa fa-circle fa-fw" aria-hidden="true"></i>
+			{%- endif -%}
+			<span class="mchat-onlinebanners-title">{{ banner.title }}</span>
+		</span>
+	{% endfor %}
+</div>
