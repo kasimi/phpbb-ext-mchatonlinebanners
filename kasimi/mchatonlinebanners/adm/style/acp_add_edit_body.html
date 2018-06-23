@@ -16,13 +16,18 @@
 		<dl>
 			<dt><label for="banner_color">{{ lang('MCHATONLINEBANNERS_BANNER_COLOR') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_COLOR_EXPLAIN') }}</span></dt>
 			<dd>
-				<input type="text" class="jscolor" name="banner_color" id="banner_color" value="{{ BANNER_COLOR }}">
-				<label><input type="checkbox" class="checkbox" name="banner_no_color" value="1"{% if ACTION == 'EDIT' and not BANNER_COLOR %} checked{% endif %}> {{ lang('MCHATONLINEBANNERS_BANNER_NO_COLOR') }}</label>
+				<input type="text" class="banner_color jscolor" data-jscolor="{refine:false, hash:true, valueElement:'banner_color', styleElement:'banner_color'}" name="banner_color" id="banner_color" size="20" value="{{ BANNER_COLOR }}">
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="banner_image">{{ lang('MCHATONLINEBANNERS_BANNER_IMAGE') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_IMAGE_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="text" class="banner_image" name="banner_image" id="banner_image" size="60" value="{{ BANNER_IMAGE }}">
 			</dd>
 		</dl>
 		<dl>
 			<dt><label for="banner_title">{{ lang('MCHATONLINEBANNERS_BANNER_TITLE') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_TITLE_EXPLAIN') }}</span></dt>
-			<dd><input type="text" name="banner_title" id="banner_title" size="20" value="{{ BANNER_TITLE }}"></dd>
+			<dd><input type="text" class="banner_title" name="banner_title" id="banner_title" size="20" value="{{ BANNER_TITLE }}"></dd>
 		</dl>
 		<dl>
 			<dt><label for="banner_duration">{{ lang('MCHATONLINEBANNERS_BANNER_DURATION') ~ lang('COLON') }}</label><br><span>{{ lang('MCHATONLINEBANNERS_BANNER_DURATION_EXPLAIN') }}</span></dt>

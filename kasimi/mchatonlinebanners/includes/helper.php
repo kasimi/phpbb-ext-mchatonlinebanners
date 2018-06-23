@@ -15,17 +15,23 @@ use dmzx\mchat\core\settings;
 
 class helper
 {
+	/** @var string */
+	protected $root_path;
+
 	/** @var settings */
 	protected $mchat_settings;
 
 	/**
-	 * @param settings $mchat_settings
+	 * @param string	$root_path
+	 * @param settings	$mchat_settings
 	 */
 	public function __construct(
+		$root_path,
 		settings $mchat_settings = null
 	)
 	{
-		$this->mchat_settings = $mchat_settings;
+		$this->root_path		= $root_path;
+		$this->mchat_settings	= $mchat_settings;
 	}
 
 	/**
@@ -121,6 +127,7 @@ class helper
 		foreach ($banners as &$banner)
 		{
 			$banner['title_raw'] = htmlspecialchars_decode($banner['title'], ENT_COMPAT);
+			$banner['image_absolute'] = !$banner['image'] || strpos($banner['image'], 'http') === 0 ? $banner['image'] : $this->root_path . $banner['image'];
 		}
 
 		return $banners;
@@ -156,6 +163,7 @@ class helper
 		foreach ($banners as &$banner)
 		{
 			unset($banner['title_raw']);
+			unset($banner['image_absolute']);
 		}
 
 		$this->mchat_settings->set_cfg('mchat_online_banners', @json_encode(array_values($banners)) ?: []);

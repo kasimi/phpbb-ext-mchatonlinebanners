@@ -5,7 +5,9 @@
 		{% for banner in MCHAT_ONLINEBANNERS %}
 			.mchat-message[data-mchat-banner="{{ banner.id }}"] .username::before,
 			.mchat-message[data-mchat-banner="{{ banner.id }}"] .username-coloured::before {
-				{% if banner.color %}
+				{% if banner.image_absolute %}
+					content: url('{{ banner.image_absolute | escape('css') }}');
+				{% elseif banner.color %}
 					color: {{ banner.color }};
 				{% else %}
 					display: none;

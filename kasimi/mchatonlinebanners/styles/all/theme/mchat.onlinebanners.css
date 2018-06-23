@@ -11,6 +11,20 @@
 	position: relative;
 }
 
+.mchat-message-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	white-space: pre;
+}
+
+.mchat-message[data-mchat-banner] .username,
+.mchat-message[data-mchat-banner] .username-coloured {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+}
+
 .mchat-message[data-mchat-banner] .username::before,
 .mchat-message[data-mchat-banner] .username-coloured::before {
 	font-family: FontAwesome;

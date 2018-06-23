@@ -21,4 +21,5 @@ services:
     kasimi.mchatonlinebanners.helper:
         class: kasimi\mchatonlinebanners\includes\helper
         arguments:
+            - '%core.root_path%'
             - '@?dmzx.mchat.settings'

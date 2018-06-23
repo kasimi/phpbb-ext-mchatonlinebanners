@@ -77,7 +77,6 @@ class acp extends base
 		$this->page_title = 'MCHATONLINEBANNERS_TITLE';
 
 		$this->lang->add_lang('acp', $ext_name);
-		//$this->lang->add_lang('mchat_acp', 'dmzx/mchat');
 
 		$action	= $this->request->variable('action', '');
 		$banner_id = $this->request->variable('banner', 0);
@@ -129,6 +128,7 @@ class acp extends base
 					$this->template->assign_vars([
 						'BANNER_TITLE'		=> $banner['title'],
 						'BANNER_COLOR'		=> $banner['color'],
+						'BANNER_IMAGE'		=> $banner['image'],
 						'BANNER_DURATION'	=> $banner['duration'],
 					]);
 				}
@@ -220,6 +220,7 @@ class acp extends base
 			$this->template->assign_block_vars('banners', [
 				'TITLE'				=> $banner['title'],
 				'COLOR'				=> $banner['color'],
+				'IMAGE'				=> $banner['image_absolute'],
 				'DURATION'			=> $banner['duration'],
 				'IS_TRANSLATABLE'	=> $this->helper->is_banner_translatable($banner),
 				'U_MOVE_UP'			=> $u_action . '&amp;action=up&amp;banner=' . $banner['id'] . '&amp;hash=' . $hash,
@@ -241,7 +242,8 @@ class acp extends base
 		return [
 			'id'		=> $banner_id,
 			'title'		=> $this->request->variable('banner_title', '', true),
-			'color'		=> $this->validate_banner_color($this->request->variable('banner_no_color', 0) ? '' : '#' . $this->request->variable('banner_color', '')),
+			'color'		=> $this->validate_banner_color($this->request->variable('banner_color', '')),
+			'image'		=> $this->request->variable('banner_image', ''),
 			'duration'	=> max(0, $this->request->variable('banner_duration', 0)),
 		];
 	}
