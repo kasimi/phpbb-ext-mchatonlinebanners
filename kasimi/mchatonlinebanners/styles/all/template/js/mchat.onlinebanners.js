@@ -104,6 +104,9 @@ mChat.onlineBanners = function(onlineBanners, timeDifference) {
 		mchat_add_message_before: function(e, data) {
 			banners.addMessages(data.message);
 		},
+		mchat_edit_message_before: function(e, data) {
+			banners.addMessages(data.newMessage);
+		},
 		mchat_rooms_enter_after: function(e, data) {
 			let roomId = data.room.data('room-id');
 			banners.addMessages(mChat.rooms.messages[roomId], true);
