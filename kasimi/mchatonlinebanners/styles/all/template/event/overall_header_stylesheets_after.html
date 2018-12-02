@@ -7,6 +7,7 @@
 			.mchat-message[data-mchat-banner="{{ banner.id }}"] .username-coloured::before {
 				{% if banner.image_absolute %}
 					content: url('{{ banner.image_absolute | escape('css') }}');
+					vertical-align: -50%;
 				{% elseif banner.color %}
 					color: {{ banner.color }};
 				{% else %}
