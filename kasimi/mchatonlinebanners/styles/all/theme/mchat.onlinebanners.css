@@ -44,11 +44,13 @@
 	border: 1px solid currentColor;
 	border-radius: 7px;
 	box-shadow: 1px 1px 3px gray;
+	text-decoration: underline;
 }
 
 .mchat-message[data-mchat-banner] .username:hover::after,
 .mchat-message[data-mchat-banner] .username-coloured:hover::after {
 	display: block;
+	text-decoration: none;
 }
 
 .mchat-message {
