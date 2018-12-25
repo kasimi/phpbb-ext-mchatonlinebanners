@@ -86,7 +86,9 @@ Banners.prototype.update = function(banner) {
 	if (status) {
 		let remaining = status.duration ? status.duration - age : 0;
 		banner.banner = status.id;
-		banner.messages.each(Message.prototype.setBanner, [banner.banner]);
+		banner.messages.each(function(i, message) {
+			message.setBanner(banner.banner);
+		});
 		if (remaining) {
 			clearTimeout(banner.timeout);
 			banner.timeout = setTimeout(this.update.bind(this, banner), remaining);
